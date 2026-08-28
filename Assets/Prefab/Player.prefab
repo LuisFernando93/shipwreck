@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3313544958128629829}
   - component: {fileID: 3967985232448527762}
+  - component: {fileID: 3666537219064411359}
   - component: {fileID: 6165964527626083263}
   - component: {fileID: 8065933965243146738}
   - component: {fileID: 922905218949762147}
@@ -64,6 +65,18 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &3666537219064411359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596575183501564402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf533f446c9008f4aadfdc93e5136de3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Player
 --- !u!114 &6165964527626083263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91,7 +104,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe4a67063246214495314a993da9c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteract
-  interact: {fileID: 0}
+  rayDistance: 2
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &922905218949762147
 MonoBehaviour:
   m_ObjectHideFlags: 0
