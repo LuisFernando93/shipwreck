@@ -2,11 +2,11 @@ using UnityEngine;
 
 public abstract  class InteractableObj : MonoBehaviour 
 {
-    protected bool interactable = true;
+    protected bool canInteract;
 
-    public abstract void Interact();
+    protected abstract void Interact();
 
-    void Start()
+    protected virtual void Start()
     {
         int interactableLayer = LayerMask.NameToLayer("Interactable");
 
