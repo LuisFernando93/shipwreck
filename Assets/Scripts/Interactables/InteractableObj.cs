@@ -2,12 +2,19 @@ using UnityEngine;
 
 public abstract  class InteractableObj : MonoBehaviour 
 {
+    [SerializeField] private InteractEventChannel interactChannel;
+    
     protected bool canInteract;
 
     protected abstract void Interact();
 
     protected virtual void Start()
     {
+        if (interactChannel == null)
+        {
+            Debug.LogError("Interact channel not found on object");
+        }
+        
         int interactableLayer = LayerMask.NameToLayer("Interactable");
 
         // Verifica se a layer existe (NameToLayer retorna -1 se não achar)
@@ -26,6 +33,24 @@ public abstract  class InteractableObj : MonoBehaviour
             child.gameObject.layer = interactableLayer;
         }
 
-        Debug.Log("Layer atribuida");
+        //Debug.Log("Layer atribuida");
+    }
+
+    private void OnEnable()
+    {
+        interactChannel.OnEventRaised += HandleInteraction;
+    }
+
+    private void OnDisable()
+    {
+        interactChannel.OnEventRaised -= HandleInteraction;
+    }
+
+    private void HandleInteraction(GameObject interactedObject)
+    {
+        if (interactedObject != this.gameObject) 
+            return;
+        //Debug.Log("Este objeto esta interagindo");
+        Interact();
     }
 }

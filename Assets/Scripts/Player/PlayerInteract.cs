@@ -5,13 +5,22 @@ using UnityEditor;
 
 public class PlayerInteract : MonoBehaviour
 {
-    public event Action<GameObject> OnInteract;
+
+    [SerializeField] private InteractEventChannel interactChannel; 
 
     [SerializeField] private float rayDistance = 2f; // Distância do "E"
     [SerializeField] private LayerMask interactableLayer; // Layer dos objetos interagíveis
 
     private GameObject currentTarget;
-    
+
+    private void Start()
+    {
+        if (interactChannel == null)
+        {
+            Debug.LogError("Interact channel not found on player");
+        }
+    }
+
     private void Update()
     {
         DetectObject();
@@ -21,9 +30,10 @@ public class PlayerInteract : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Canceled) 
         {
+            //Debug.Log("interact");
             if (currentTarget != null)
             {
-                OnInteract?.Invoke(currentTarget);
+                interactChannel.RaiseEvent(currentTarget);
             }
         } 
     }
@@ -37,6 +47,7 @@ public class PlayerInteract : MonoBehaviour
         if (Physics.Raycast(ray, out hit, rayDistance, interactableLayer))
         {
             currentTarget = hit.collider.gameObject;
+            // Debug.Log("interagivel");
             // Aqui você poderia disparar outro evento para mostrar "Aperte E" na UI
         }
         else

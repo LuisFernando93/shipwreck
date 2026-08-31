@@ -18,6 +18,9 @@ public class DoorInteraction : InteractableObj
 
     protected override void Interact()
     {
-
+        if (canInteract)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

@@ -125,3 +125,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108562e8cad025b4ba8be8e6b33a0833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorInteraction
+  interactChannel: {fileID: 11400000, guid: 1acd4afbf678b494eaafc6011ac78079, type: 2}
