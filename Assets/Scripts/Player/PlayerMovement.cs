@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
 
     [SerializeField] private Transform orientation;
-
     [SerializeField] private InputActionReference movement; 
 
     Vector2 _moveDirection;
