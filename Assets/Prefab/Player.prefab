@@ -91,7 +91,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
   orientation: {fileID: 4316475540764879509}
+  playerObj: {fileID: 7316279887896371045}
+  camera: {fileID: 0}
   movement: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  rotationSpeed: 10
 --- !u!114 &8065933965243146738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,13 +257,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2962494901350450554}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.397, y: 0.423, z: 0.026}
+  m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: 0.001, y: 0.42299998, z: 0.444}
   m_LocalScale: {x: 0.3728311, y: 0.3728311, z: 0.3728311}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7316279887896371045}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
 --- !u!33 &5968663578890772819
 MeshFilter:
   m_ObjectHideFlags: 0

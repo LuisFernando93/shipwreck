@@ -7,7 +7,6 @@ public class DoorInteraction : InteractableObj
     {
         base.Start();
         canInteract = true;
-        //FindObjectByType<PlayerInteract>().OnInteract += Interact();
     }
 
     // Update is called once per frame
