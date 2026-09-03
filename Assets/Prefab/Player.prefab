@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteract
   interactChannel: {fileID: 11400000, guid: 1acd4afbf678b494eaafc6011ac78079, type: 2}
+  playerObj: {fileID: 7316279887896371045}
   rayDistance: 2
   interactableLayer:
     serializedVersion: 2

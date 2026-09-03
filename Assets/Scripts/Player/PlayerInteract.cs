@@ -6,8 +6,8 @@ using UnityEditor;
 public class PlayerInteract : MonoBehaviour
 {
 
-    [SerializeField] private InteractEventChannel interactChannel; 
-
+    [SerializeField] private InteractEventChannel interactChannel;
+    [SerializeField] private Transform playerObj;
     [SerializeField] private float rayDistance = 2f; // Distância do "E"
     [SerializeField] private LayerMask interactableLayer; // Layer dos objetos interagíveis
 
@@ -41,7 +41,7 @@ public class PlayerInteract : MonoBehaviour
     private void DetectObject()
     {
         // Lança um raio invisível para frente
-        Ray ray = new Ray(transform.position, transform.forward);
+        Ray ray = new Ray(transform.position, playerObj.forward);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, rayDistance, interactableLayer))
@@ -60,6 +60,6 @@ public class PlayerInteract : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawRay(transform.position, transform.forward * rayDistance);
+        Gizmos.DrawRay(transform.position, playerObj.forward * rayDistance);
     }
 }
