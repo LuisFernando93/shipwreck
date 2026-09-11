@@ -12,11 +12,11 @@ public class Lock : MonoBehaviour
 
     public void Unlock()
     {
-        switch (lockType)
-        {
-            case LockType.SmallKey:
-                
-                break;
-        }
+        locked = false;
+    }
+
+    public LockType GetLockType()
+    {
+        return lockType;
     }
 }

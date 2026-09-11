@@ -6,7 +6,7 @@ public abstract  class InteractableObj : MonoBehaviour
     
     protected bool canInteract;
 
-    protected abstract void Interact();
+    protected abstract void Interact(Player interactedPlayer);
 
     protected virtual void Start()
     {
@@ -46,11 +46,11 @@ public abstract  class InteractableObj : MonoBehaviour
         interactChannel.OnEventRaised -= HandleInteraction;
     }
 
-    private void HandleInteraction(GameObject interactedObject)
+    private void HandleInteraction(GameObject interactedObject, Player player)
     {
         if (interactedObject != this.gameObject) 
             return;
         //Debug.Log("Este objeto esta interagindo");
-        Interact();
+        Interact(player);
     }
 }

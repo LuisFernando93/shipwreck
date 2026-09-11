@@ -33,7 +33,7 @@ public class PlayerInteract : MonoBehaviour
             //Debug.Log("interact");
             if (currentTarget != null)
             {
-                interactChannel.RaiseEvent(currentTarget);
+                interactChannel.RaiseEvent(currentTarget, gameObject.GetComponent<Player>());
             }
         } 
     }

@@ -16,17 +16,15 @@ public class PlayerInventory : MonoBehaviour
         Debug.Log("Chave adicionada. Numero atual de chaves no inventário: " + nKeys);
     }
 
-    public bool UseKey()
+    public void UseKey()
     {
         if (nKeys > 0)
         {
             nKeys--;
             Debug.Log("Chave utilizada. Numero atual de chaves no inventário: " + nKeys);
-            return true;
         } else
         {
             Debug.Log("Você nao possui uma chave");
-            return false;
         }
     }
         

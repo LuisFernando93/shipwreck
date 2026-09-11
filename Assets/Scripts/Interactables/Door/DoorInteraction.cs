@@ -24,7 +24,7 @@ public class DoorInteraction : InteractableObj
         
     }
 
-    protected override void Interact()
+    protected override void Interact(Player player)
     {
         if (canInteract)
         {
@@ -35,7 +35,20 @@ public class DoorInteraction : InteractableObj
             {
                 if(doorLock.IsLocked()) //porta trancada
                 {
-                    //tentar destrancar porta
+                    if (doorLock.GetLockType() == LockType.SmallKey)
+                    {
+                        PlayerInventory inventory = player.GetComponent<PlayerInventory>();
+                        if (inventory.nKeys > 0)
+                        {
+                            inventory.UseKey();
+                            doorLock.Unlock();
+                            Open();
+                        }
+                        else
+                        {
+                            Debug.Log("Você nao possui uma chave");
+                        }
+                    }
                 } else //porta destrancada
                 {
                     Open();

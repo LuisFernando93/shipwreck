@@ -583,23 +583,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &956739739 stripped
+--- !u!1 &1375980142 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1596575183501564402, guid: 30c2cdf2425bdcc45934a0c0a3da0aa9, type: 3}
-  m_PrefabInstance: {fileID: 2788508653078535275}
+  m_CorrespondingSourceObject: {fileID: 3710494189875688279, guid: a3aae0ed5fb8e8f449712766156237dd, type: 3}
+  m_PrefabInstance: {fileID: 796231401754269962}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &956739740
+--- !u!114 &1375980148
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956739739}
+  m_GameObject: {fileID: 1375980142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d7392200f04ba840b1596838f2a97fd, type: 3}
+  m_Script: {fileID: 11500000, guid: c547880e0e72cfa438b81c8fe8e87b4d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerInventory
+  m_EditorClassIdentifier: Assembly-CSharp::Lock
+  lockType: 0
 --- !u!1 &1670668735
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,7 +781,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3710494189875688279, guid: a3aae0ed5fb8e8f449712766156237dd, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 1375980148}
   m_SourcePrefab: {fileID: 100100000, guid: a3aae0ed5fb8e8f449712766156237dd, type: 3}
 --- !u!1001 &2788508653078535275
 PrefabInstance:
@@ -841,10 +845,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1596575183501564402, guid: 30c2cdf2425bdcc45934a0c0a3da0aa9, type: 3}
-      insertIndex: 5
-      addedObject: {fileID: 956739740}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30c2cdf2425bdcc45934a0c0a3da0aa9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
