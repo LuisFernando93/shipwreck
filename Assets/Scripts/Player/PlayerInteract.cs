@@ -30,7 +30,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (context.phase == InputActionPhase.Canceled) 
         {
-            Debug.Log("interact");
+            //Debug.Log("interact");
             if (currentTarget != null)
             {
                 interactChannel.RaiseEvent(currentTarget, gameObject.GetComponent<Player>());
