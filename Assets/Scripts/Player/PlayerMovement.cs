@@ -1,4 +1,5 @@
 using Unity.Mathematics.Geometry;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,53 +8,64 @@ public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
 
-    [SerializeField] private Transform orientation;
-    [SerializeField] private Transform playerObj;
-    [SerializeField] private Transform camera;
-    [SerializeField] private InputActionReference movement; 
+    //[SerializeField] private Transform orientation;
+    //[SerializeField] private Transform playerObj;
+    [SerializeField] private Transform cameraTransform;
     [SerializeField] private float rotationSpeed = 10f;
 
-    Vector2 _moveDirection;
+    Vector2 _moveInput;
+    Vector3 _moveDirection;
 
-    Rigidbody rb;
+    CharacterController controller;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;
+        controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        MovementInput();
+        MovePlayer();
         RotatePlayer();
     }
 
-    private void FixedUpdate()
+    public void OnMove(InputAction.CallbackContext context)
     {
-        MovePlayer();
-    }
-
-    private void MovementInput()
-    {
-        _moveDirection = movement.action.ReadValue<Vector2>();
+        _moveInput = context.ReadValue<Vector2>();
     }
 
     private void MovePlayer()
     {
-        rb.linearVelocity = new Vector3(_moveDirection.x * moveSpeed, 0, _moveDirection.y * moveSpeed);
+        Vector3 forward = cameraTransform.forward;
+        Vector3 right = cameraTransform.right;
+
+        forward.x = 0f;
+        right.y = 0f;
+
+        forward.Normalize();
+        right.Normalize();
+
+        _moveDirection = forward * _moveInput.y + right * _moveInput.x;
+
+        controller.Move(_moveDirection * moveSpeed * Time.deltaTime);
     }
 
     private void RotatePlayer()
     {
-        Vector3 viewDir = transform.position - new Vector3(camera.position.x, transform.position.y, camera.position.z);
+        if (_moveDirection.sqrMagnitude > 0.001f)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(_moveDirection, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
+
+        /*Vector3 viewDir = transform.position - new Vector3(cameraTransform.position.x, transform.position.y, cameraTransform.position.z);
         orientation.forward = viewDir.normalized;
 
         if (_moveDirection != Vector2.zero)
         {
             playerObj.forward = Vector3.Slerp(playerObj.forward, new Vector3(_moveDirection.x, 0, _moveDirection.y), Time.deltaTime * rotationSpeed);
-        }
+        }*/
     }
 }
