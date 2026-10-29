@@ -613,6 +613,7 @@ GameObject:
   - component: {fileID: 1670668738}
   - component: {fileID: 1670668741}
   - component: {fileID: 1670668736}
+  - component: {fileID: 1670668742}
   - component: {fileID: 1670668740}
   m_Layer: 0
   m_Name: ThirdPersonCam
@@ -823,6 +824,22 @@ MonoBehaviour:
       Wait: 1
       Time: 2
     Restrictions: 0
+--- !u!114 &1670668742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670668735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f7d24f4c91720f4c83d7dfb339ec399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ThirdPersonCam
+  zoomSpeed: 2
+  zoomLerpSpeed: 10
+  minDistance: 3
+  maxDistance: 15
 --- !u!1001 &796231401754269962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -936,9 +953,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6165964527626083263, guid: 30c2cdf2425bdcc45934a0c0a3da0aa9, type: 3}
-      propertyPath: camera
+      propertyPath: cameraTransform
       value: 
-      objectReference: {fileID: 330585546}
+      objectReference: {fileID: 1670668739}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
