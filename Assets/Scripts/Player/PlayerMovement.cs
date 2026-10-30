@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;
 
-        forward.x = 0f;
+        forward.y = 0f;
         right.y = 0f;
 
         forward.Normalize();
