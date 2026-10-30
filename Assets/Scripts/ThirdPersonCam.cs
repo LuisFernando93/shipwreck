@@ -29,7 +29,7 @@ public class ThirdPersonCam : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         camera = GetComponent<CinemachineCamera>();
-        orbital = GetComponent<CinemachineOrbitalFollow>();
+        orbital = camera.GetComponent<CinemachineOrbitalFollow>();
         
         targetZoom = currentZoom = orbital.Radius;
     }

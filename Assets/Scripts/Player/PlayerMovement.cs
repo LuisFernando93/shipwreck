@@ -6,11 +6,9 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float moveSpeed;
 
-    //[SerializeField] private Transform orientation;
-    //[SerializeField] private Transform playerObj;
     [SerializeField] private Transform cameraTransform;
+    [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float rotationSpeed = 10f;
 
     Vector2 _moveInput;
@@ -59,13 +57,5 @@ public class PlayerMovement : MonoBehaviour
             Quaternion toRotation = Quaternion.LookRotation(_moveDirection, Vector3.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
-
-        /*Vector3 viewDir = transform.position - new Vector3(cameraTransform.position.x, transform.position.y, cameraTransform.position.z);
-        orientation.forward = viewDir.normalized;
-
-        if (_moveDirection != Vector2.zero)
-        {
-            playerObj.forward = Vector3.Slerp(playerObj.forward, new Vector3(_moveDirection.x, 0, _moveDirection.y), Time.deltaTime * rotationSpeed);
-        }*/
     }
 }
